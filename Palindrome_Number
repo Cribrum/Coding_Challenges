@@ -1,0 +1,25 @@
+/*
+Given an integer x, return true if x is palindrome integer.
+
+An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.
+*/
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        
+        String numForward = String.valueOf(x);
+        String numBackward = "";
+        int numLength = numForward.length();
+        for (int i=(numLength-1); i>=0; i--) {
+            numBackward += numForward.charAt(i);
+        }
+        
+        if (numForward.equals(numBackward)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+        
+    }
+}
