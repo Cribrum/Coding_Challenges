@@ -1,0 +1,17 @@
+def steps(n):
+    """How many different ways can you climb a staircase of `n` steps?
+
+    You can climb 1, 2, or 3 steps at a time.
+    """
+
+    # START SOLUTION
+
+    # ANSWER IN PYTHON
+
+    if n == 0:
+        return 1
+
+    if n < 1:
+        return 0
+
+    return steps(n - 1) + steps(n - 2) + steps(n - 3)
