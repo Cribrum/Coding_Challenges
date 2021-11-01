@@ -4,27 +4,46 @@ Given an integer x, return true if x is palindrome integer.
 An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.
 */
 
-               
+#PYTHON SOLUTION
+
+class Solution:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0:
+            return False
+        str_1 = str(abs(x))
+        str_2 = str_1[::-1]
+        if str_1 == str_2:
+            return True
+        else:
+            return False
 
 
 
 //JAVA SOLUTION
-class Solution {
-    public boolean isPalindrome(int x) {
-        
-        String numForward = String.valueOf(x);
-        String numBackward = "";
-        int numLength = numForward.length();
-        for (int i=(numLength-1); i>=0; i--) {
-            numBackward += numForward.charAt(i);
-        }
-        
-        if (numForward.equals(numBackward)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-        
+public boolean isPalindrome(int num){
+   if(num < 0) return  false; 
+   int reversed = 0, remainder, original = num;
+   while(num != 0) {
+        remainder = num % 10; // reversed integer is stored in variable
+        reversed = reversed * 10 + remainder; //multiply reversed by 10 then add the remainder so it gets stored at next decimal place.
+        num  /= 10;  //the last digit is removed from num after division by 10.
     }
+    // palindrome if original and reversed are equal
+    return original == reversed;
+}
+
+OR
+
+public boolean isPalindrome(int x) {
+    String str = String.valueOf(x);
+    int start = 0;
+    int end = str.length() - 1;
+    while(start < end){
+        if(str.charAt(start++) != str.charAt(end--)) return false;
+    }
+    return true;
 }
