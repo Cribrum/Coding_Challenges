@@ -1,0 +1,49 @@
+//Turns roman numerals into integers
+
+class Solution {
+    public int romanToInt(String s) {
+        
+        int totalVal = 0;
+        int romNum = 0;
+        int romNumLast = 0;
+        
+        for (int i=0; i<s.length(); i++) {
+            char romLet = s.charAt(i);
+
+            if (romLet == 'I') {
+                romNum = 1;
+            }
+            else if (romLet == 'V') {
+                romNum = 5;
+            }
+            else if (romLet == 'X') {
+                romNum = 10;
+            }
+            else if (romLet == 'L') {
+                romNum = 50;
+            }
+            else if (romLet == 'C') {
+                romNum = 100;
+            }
+            else if (romLet == 'D') {
+                romNum = 500;
+            }
+            else {
+                romNum = 1000;
+            }
+            
+            if (romNum > romNumLast) {
+                totalVal -= (romNumLast * 2);
+            }
+
+            totalVal += romNum;
+
+            romNumLast = romNum;
+            romNum = 0;
+            
+        }
+        
+        return totalVal;
+        
+    }
+}
